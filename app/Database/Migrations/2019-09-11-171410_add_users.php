@@ -11,11 +11,16 @@ class AddUsers extends Migration
                 'type'           => 'INT',
                 'constraint'     => 5,
                 'unsigned'       => TRUE,
-                'auto_increment' => TRUE
+                'auto_increment' => TRUE,
             ],
             'name' => [
                 'type'           => 'VARCHAR',
                 'constraint'     => '100',
+            ],
+            'session_id' => [
+                'type'           => 'INT',
+                'constraint'     => 5,
+                'unsigned'       => TRUE,
             ],
         ]);
         $this->forge->addKey('id', TRUE);
