@@ -1,0 +1,17 @@
+{
+    "name": "rhombus-coding-challenge",
+    "version": "0.0.1",
+    "description": "A solution to Rhombus' employee candidate coding challenge.",
+    "author": "Joe Lynch",
+    "repository": {
+        "url": "git@github.com:Lemmings19/rhombus-coding-challenge.git",
+        "type": "git"
+    },
+    "private": true,
+    "dependencies": {
+        "express": "^4.15.2",
+        "socket.io": "^2.2.0"
+    },
+    "scripts": {},
+    "devDependencies": {}
+}

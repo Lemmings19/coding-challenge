@@ -1,6 +1,7 @@
 /node_modules
 /writable
 /vendor
+/public/writable
 
 #-------------------------
 # Operating Specific Junk Files
