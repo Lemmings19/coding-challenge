@@ -72,10 +72,12 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', function () { return view('index'); });
+$routes->get('/', function () { return view('index');}, ['as' => 'index']);
 
-$routes->add('admin', function () { return view('admin'); });
-$routes->add('user', function () { return view('user'); });
+$routes->add('admin',  'User::admin',  ['as' => 'admin']);
+$routes->add('logout', 'User::logout', ['as' => 'logout']);
+$routes->add('user',   'User::user',   ['as' => 'user']);
+$routes->add('kicked', function () { return view('kicked');}, ['as' => 'kicked']);
 
 /**
  * --------------------------------------------------------------------
