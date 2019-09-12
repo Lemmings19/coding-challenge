@@ -38,6 +38,26 @@ The challenge, as provided:
 
 **Composer**: 1.9.0
 
+**Socket.io**: 2.2.0
+
+## Preface
+
+Socket.io will need to be started manually to get the real-time user logout functionality working, run it from the root of the project: `node public/index.js`
+
+CodeIgniter4 was used for this project. It should not have been used. I did not realize what an early release candidate it was. It is full of bugs and problems. **The vast majority** of the time spent on this assignment was spent dealing with errors caused by CodeIgniter4 and some very picky Apache configs. Some notable mentions:
+
+- Switching the environment to testing is required to view errors, naturally, however...
+- The error logger encounters a fatal error 100% of the time and loses the original error it was trying to log.
+- All views appear to broken when the app is set to testing mode due to a bug in the main template (preventing Javascript execution).
+- The first run of the DB migrations and seeder went fine. However upon trying to migrate and seed a second time (after manually dropping the tables), the tool for running migrations and seeds encountered a permanent fatal error.
+- If you set a base URL in the environment variables, the entire application will begin attempting to add `index.php` to every URL.
+- When in testing, all database tables are now expected to be prefixed with `db_`, rendering all tables... useless. Until you switch back off of testing.
+- There is no community support/experience/FAQ for CodeIgnitor4 yet. Good luck!
+
+The  environment, database, migrations, seeders, controllers, models, views, and routes were all very quick to build out and test. Figuring out how to manipulate the user's page in real-time from a different session however took much longer as I'd never done that before and wasn't sure where to begin.
+
+I ended up using Socket.io to perform this task. I had attempted to use PHP to trigger socket.io from the server, and I got really really close, but ultimately ran out of time and had several buggy factors within CodeIgniter4 preventing me from continuing in a timely manner. So, the front-end is responsible for triggering the user redirect, while the back-end handles the session destruction.
+
 ## Server First-Time Setup
 
 ### Update pacakges in Ubuntu
@@ -82,9 +102,16 @@ php -r "unlink('composer-setup.php');"
 
 ### Configure Apache
 
-Update the Apache to point to the appropriate index folder `/etc/apache2/sites-available`:
+Update the Apache to point to the appropriate index folder in `/etc/apache2/sites-available`:
 ```
     DocumentRoot /var/www/html/rhombus-coding-challenge/public
+```
+
+Ensure `AllowOverride All` is enabled:
+```
+<Directory /var/www/html/rhombus-coding-challenge/public>
+    AllowOverride All
+</Directory>
 ```
 
 ### Install MariaDB
@@ -104,8 +131,18 @@ Login and create the database: `mysql -u root -p` ``CREATE DATABASE `rhombus-cod
 
 `sudo apt install phpmyadmin`
 
-Update the Apache config located at `/etc/apache2/sites-available`:
+Update the Apache config located at `/etc/apache2/sites-available` to contain:
 ```
     Alias /phpmyadmin /usr/share/phpmyadmin
 ```
+
+### Install Socket.io
+
+`package.json` in the root directory of this repo contains the appropriate libraries. You may need to run `npm install` to download and install them.
+
+### Install CodeIgniter4
+
+**WARNING:** CodeIgniter4 is not suitable for production environments. Honestly, it's not suitable for development environments either as it is full of bugs. Good thing this is a throwaway project.
+
+Just run `composer install`.
 
