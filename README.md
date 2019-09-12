@@ -1,4 +1,4 @@
-# A coding challenge presented by Rhombus
+# A coding challenge
 
 This repo contains a solution for a coding challenge presented to potential employees.
 
@@ -83,8 +83,8 @@ Git should already be installed. Perform the following Git setup:
 
 - Config username/email: https://help.github.com/articles/set-up-git/
 - Config ssh key: https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#platform-linux
-- Clone the repo: `cd /var/www` `git clone git@github.com:Lemmings19/rhombus-coding-challenge.git`
-- Symlink the project for easy access: `ln -s /var/www/rhombus-coding-challenge /home/ubuntu/rhombus-coding-challenge` or wherever the project/home directory is located.
+- Clone the repo: `cd /var/www` `git clone git@github.com:Lemmings19/coding-challenge.git`
+- Symlink the project for easy access: `ln -s /var/www/coding-challenge /home/ubuntu/coding-challenge` or wherever the project/home directory is located.
 
 ### Install Composer
 https://getcomposer.org/download/
@@ -104,12 +104,12 @@ php -r "unlink('composer-setup.php');"
 
 Update the Apache to point to the appropriate index folder in `/etc/apache2/sites-available`:
 ```
-    DocumentRoot /var/www/html/rhombus-coding-challenge/public
+    DocumentRoot /var/www/html/coding-challenge/public
 ```
 
 Ensure `AllowOverride All` is enabled:
 ```
-<Directory /var/www/html/rhombus-coding-challenge/public>
+<Directory /var/www/html/coding-challenge/public>
     AllowOverride All
 </Directory>
 ```
@@ -125,7 +125,7 @@ sudo apt update
 sudo apt install mariadb-server
 ```
 
-Login and create the database: `mysql -u root -p` ``CREATE DATABASE `rhombus-coding-challenge`;`` `exit`
+Login and create the database: `mysql -u root -p` ``CREATE DATABASE `coding-challenge`;`` `exit`
 
 ### Install phpMyAdmin
 
