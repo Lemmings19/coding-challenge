@@ -1,8 +1,12 @@
+/node_modules
+/writable
+/vendor
+
 #-------------------------
 # Operating Specific Junk Files
 #-------------------------
 
-# OS X
+# OS Xgit
 .DS_Store
 .AppleDouble
 .LSOverride
