@@ -52,6 +52,7 @@ CodeIgniter4 was used for this project. It should not have been used. I did not 
 - The first run of the DB migrations and seeder went fine. However upon trying to migrate and seed a second time (after manually dropping the tables), the tool for running migrations and seeds encountered a permanent fatal error.
 - If you set a base URL in the environment variables, the entire application will begin attempting to add `index.php` to every URL.
 - When in testing, all database tables are now expected to be prefixed with `db_`, rendering all tables... useless. Until you switch back off of testing.
+- Sessions would not save with the filesystem set as the driver. Even after hacking logging to work again and it successfully saving logs to the filesystem, sessions wouldn't save/persist.
 - There is no community support/experience/FAQ for CodeIgnitor4 yet. Good luck!
 
 The  environment, database, migrations, seeders, controllers, models, views, and routes were all very quick to build out and test. Figuring out how to manipulate the user's page in real-time from a different session however took much longer as I'd never done that before and wasn't sure where to begin.
