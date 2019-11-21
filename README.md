@@ -1,6 +1,6 @@
 # A coding challenge
 
-This repo contains a solution for a coding challenge presented to potential employees.
+This is a solution for a coding challenge presented to potential hires by a company that 100% uses 'coding challenges' to get people to do their work for free. (confirmed)
 
 The challenge, as provided:
 
